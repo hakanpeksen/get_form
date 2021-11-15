@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.get_form">
-   <application
+      <application
         android:label="get_form"
         android:icon="@mipmap/ic_launcher">
         <activity

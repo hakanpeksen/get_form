@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'login_form/view/login_view.dart';
+import 'core/app_router.dart';
+import 'image_picker/view/image_picker_view.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   runApp(const MyApp());
 }
@@ -14,9 +16,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       title: 'Get Form',
-      home: LoginView(),
+      home: const ImagePickerView(),
+      getPages: AppRouter.routes,
     );
   }
 }
