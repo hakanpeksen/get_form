@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Get Form',
+      debugShowCheckedModeBanner: false,
       home: const ImagePickerView(),
       getPages: AppRouter.routes,
     );
