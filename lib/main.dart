@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_form/todos/view/todos.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'core/app_router.dart';
-import 'image_picker/view/image_picker_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Get Form',
       debugShowCheckedModeBanner: false,
-      home: const ImagePickerView(),
+      home: const TodosView(),
       getPages: AppRouter.routes,
     );
   }
