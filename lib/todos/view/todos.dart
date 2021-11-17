@@ -24,7 +24,7 @@ class TodosView extends StatelessWidget {
                 child: ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                   leading: CircleAvatar(child: Text(todo.id.toString())),
-                  title: Text(todo.title ?? ''),
+                  title: Text(todo.title),
                   onTap: () => ctrl.openDetail(todo.id),
                 ),
               );

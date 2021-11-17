@@ -14,7 +14,7 @@ class TodoDetailView extends StatelessWidget {
       body: Obx(
         () {
           return ctrl.todo.value != null
-              ? Card(child: ListTile(title: Text(ctrl.todo.value?.title.toString() ?? '')))
+              ? Card(child: ListTile(title: Text(ctrl.todo.value!.title.toString())))
               : Container();
         },
       ),

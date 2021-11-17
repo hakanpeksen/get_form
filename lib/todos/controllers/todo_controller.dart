@@ -23,7 +23,7 @@ class TodoController extends GetxController {
     isLoading(false);
   }
 
-  openDetail(int? id) {
+  openDetail(int id) {
     todo(todoList.value.firstWhere((e) => e.id == id));
     Get.toNamed(AppRouter.todoDetail);
   }
