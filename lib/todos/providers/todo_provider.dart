@@ -10,7 +10,7 @@ class TodoProvider extends GetConnect {
     super.onInit();
   }
 
-  Future<Response<List<Todo>>> getTodos() => get('todos');
+  Future<Response> getTodos() => get('todos');
 
   Future<Response> postTodo(body) => post('todos', body);
 
