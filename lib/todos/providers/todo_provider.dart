@@ -11,4 +11,9 @@ class TodoProvider extends GetConnect {
   }
 
   Future<Response<List<Todo>>> getTodos() => get('todos');
+
+  Future<Response> postTodo(body) => post('todos', body);
+
+  Future<Response> putTodo(body) => put('todos/1', body);
+  Future<Response> deleteTodo(int id) => delete('todos/$id');
 }

@@ -22,5 +22,11 @@ class Todo {
 
   Map<String, dynamic> toJson() => _$TodoToJson(this);
 
-  static List<Todo> listFromJson(list) => List<Todo>.from(list.map((x) => Todo.fromJson(x)));
+  static listFromJson(list) {
+    if (list is List) {
+      return List<Todo>.from(list.map((x) => Todo.fromJson(x)));
+    }
+    // Put için gerekli
+    return Map<String, dynamic>.from(list);
+  }
 }

@@ -15,4 +15,26 @@ class TodoService {
     }
     return [];
   }
+
+  Future postTodo() async {
+    var body = {"title": "sampletitle", "completed": true};
+    var response = await _provider.postTodo(body);
+    if (response.isOk) {
+      return response;
+    }
+  }
+
+  Future putTodo() async {
+    var body = {"id:": "1", "title": "sampletitleupdate", "completed": false};
+    var response = await _provider.putTodo(body);
+
+    if (response.isOk) {
+      return response;
+    }
+  }
+
+  Future deleteTodo() async {
+    var response = await _provider.deleteTodo(1);
+    if (response.isOk) return;
+  }
 }
