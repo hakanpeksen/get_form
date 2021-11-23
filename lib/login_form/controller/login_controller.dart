@@ -6,9 +6,21 @@ import '../model/login_model.dart';
 
 class LoginController extends GetxController {
   final box = GetStorage();
-  final _key = 'loginKey';
   final loginFormKey = GlobalKey<FormState>();
   late TextEditingController nameController, emailController, passwordController;
+  final _key = 'loginKey';
+
+  //lang
+  var language = Get.deviceLocale.obs;
+
+  // Save lang GetStorage
+  final String _langKey = 'lang';
+  void saveLanguage(String lang) {
+    box.write(_langKey, lang);
+  }
+
+  // Get lang GetStorage
+  String? getLanguage() => box.read(_langKey);
 
   @override
   void onInit() {
@@ -16,6 +28,12 @@ class LoginController extends GetxController {
     nameController = TextEditingController();
     emailController = TextEditingController();
     passwordController = TextEditingController();
+
+    //Get lang GetStorage, Update language
+    final _langFromLocal = getLanguage();
+    if (_langFromLocal != null && _langFromLocal.isNotEmpty) {
+      language(Locale(_langFromLocal));
+    }
   }
 
   @override
@@ -23,6 +41,21 @@ class LoginController extends GetxController {
     nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+  }
+
+  //Change Lang
+  void changeLanguage(String? lang) {
+    if (lang == null) {
+      if (language.value != null && language.value!.languageCode == 'en') {
+        lang = 'tr';
+      } else {
+        lang = 'en';
+      }
+    }
+    // Save lang
+    saveLanguage(lang);
+    language(Locale(lang));
+    Get.updateLocale(language.value!);
   }
 
   String get name => getModel()?.name ?? '';
