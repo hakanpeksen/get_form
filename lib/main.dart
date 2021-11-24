@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_form/tabbar/tabbar_view_v2.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'core/app_translations.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Get Form',
-      home: const TabBarComponent(),
+      //home: const TabBarComponent(),
+      home: const TabBarViewV2(),
       translations: AppTranslations(),
       locale: appCtrl.language.value,
       fallbackLocale: const Locale('en'),
