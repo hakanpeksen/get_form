@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 
 import 'core/app_translations.dart';
 import 'login_form/controller/login_controller.dart';
-import 'login_form/view/login_view.dart';
+import 'tabbar/tabbar_view.dart';
 
 void main() async {
   await GetStorage.init();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Get Form',
-      home: const LoginView(),
+      home: const TabBarComponent(),
       translations: AppTranslations(),
       locale: appCtrl.language.value,
       fallbackLocale: const Locale('en'),
