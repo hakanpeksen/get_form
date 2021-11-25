@@ -21,7 +21,8 @@ class TabBarViewV2 extends StatelessWidget {
                 indicator: indicatorDecoration,
                 tabs: TabListModel().toWidgets()),
           ),
-          body: TabBarView(children: TabListModel.icon().toIconWidgets()),
+          //body: TabBarView(children: TabListModel().toWidgets()),
+          body: TabBarView(children: TabListModel().toIconWidgets()),
         ));
   }
 }

@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 
+//Optinal params
+//[this.size = 200]
 class TabModel {
   final IconData icon;
-  TabModel(this.icon);
-}
-
-class TabIconModel {
-  final IconData icon;
   double size;
-  TabIconModel(this.icon, {this.size = 200});
+  TabModel(this.icon, [this.size = 200]);
 }
 
-// 1 TabListModel 2 farklı constructor
 class TabListModel {
-  /// [TabModel]
   late final List<TabModel> _items;
 
   TabListModel() {
@@ -24,6 +19,7 @@ class TabListModel {
     ];
   }
   get items => _items.length;
+  // Tab Widgets
   List<Tab> toWidgets() {
     return _items.map((e) => Tab(icon: Icon(e.icon))).toList();
   }
@@ -35,19 +31,9 @@ class TabListModel {
 // Tab(icon: Icon(Icons.directions_car)),
 //  ],
 
-  /// [TabIconModel]
-  late final List<TabIconModel> _icons;
-
-  TabListModel.icon() {
-    _icons = [
-      TabIconModel(Icons.ac_unit),
-      TabIconModel(Icons.directions_transit),
-      TabIconModel(Icons.directions_car),
-    ];
-  }
-
+// Icon Widgets
   List<Icon> toIconWidgets() {
-    return _icons.map((e) => Icon(e.icon, size: e.size)).toList();
+    return _items.map((e) => Icon(e.icon, size: e.size)).toList();
   }
 
   /// BEFORE:
