@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../ui/shared/text_style.dart';
+import '../../ui/shared/ui_helper.dart';
+
 class CustomTextField extends StatelessWidget {
   final Function(String)? changedValue;
   final String? hintText;
@@ -29,11 +32,9 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
           hintText: hintText,
-          errorStyle: const TextStyle(fontSize: 16),
+          errorStyle: const TextStyle(fontSize: UIHelper.space14),
           prefixIcon: prefixIcon,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-          )),
+          border: circleTextInputDecoration),
       validator: validator,
       controller: controller,
       keyboardType: keyboardType,

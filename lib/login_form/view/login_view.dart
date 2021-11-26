@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_form/ui/shared/ui_helper.dart';
 
+import '../../ui/shared/ui_helper.dart';
 import '../components/custom_elevatedbutton.dart';
 import '../components/custom_textfield.dart';
 import '../controller/login_controller.dart';
@@ -59,7 +59,6 @@ class LoginView extends StatelessWidget {
                 width: double.infinity,
                 child: CustomElevatedButton(
                     label: 'Submit',
-                    textStyle: context.textTheme.headline6,
                     onPressed: () {
                       objeController.checkLogin();
                       FocusScope.of(context).requestFocus(FocusNode());

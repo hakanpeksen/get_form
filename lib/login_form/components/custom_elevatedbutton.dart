@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/context_extensions.dart';
+
+import '../../ui/shared/text_style.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  final String? label;
-  final TextStyle? textStyle;
-  final VoidCallback? onPressed;
+  final String label;
+  final VoidCallback onPressed;
 
   const CustomElevatedButton({
     Key? key,
     required this.label,
-    this.textStyle,
     required this.onPressed,
   }) : super(key: key);
 
@@ -16,10 +17,10 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: Colors.green,
+        primary: submitButtonColor,
         shape: const StadiumBorder(),
       ),
-      child: Text(label ?? '', style: textStyle),
+      child: Text(label, style: context.textTheme.headline6),
       onPressed: onPressed,
     );
   }
