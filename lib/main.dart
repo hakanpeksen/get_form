@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -14,9 +15,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      title: 'Get Form',
-      home: LoginView(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      builder: () => const GetMaterialApp(
+        title: 'Get Form',
+        home: LoginView(),
+      ),
     );
   }
 }

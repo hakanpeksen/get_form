@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_form/ui/shared/ui_helper.dart';
 
 import '../components/custom_elevatedbutton.dart';
 import '../components/custom_textfield.dart';
@@ -19,49 +20,53 @@ class LoginView extends StatelessWidget {
             builder: (_) => ((Text('Name: ${objeController.name.toString()}',
                 style: context.textTheme.headline5)))),
       ),
-      body: Form(
-        key: objeController.loginFormKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            CustomTextField(
-              hintText: 'Name',
-              prefixIcon: const Icon(Icons.person),
-              controller: objeController.nameController,
-              keyboardType: TextInputType.text,
-              validator: objeController.validateName,
-            ),
-            const SizedBox(height: 10),
-            CustomTextField(
-              hintText: 'Email',
-              prefixIcon: const Icon(Icons.email),
-              controller: objeController.emailController,
-              keyboardType: TextInputType.emailAddress,
-              validator: objeController.validateEmail,
-            ),
-            const SizedBox(height: 10),
-            CustomTextField(
-              hintText: 'Password',
-              prefixIcon: const Icon(Icons.lock),
-              isTextObscured: true,
-              controller: objeController.passwordController,
-              keyboardType: TextInputType.visiblePassword,
-              validator: objeController.validatePassword,
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 50,
-              width: double.infinity,
-              child: CustomElevatedButton(
-                  label: 'Save',
-                  textStyle: context.textTheme.headline6,
-                  onPressed: () {
-                    objeController.checkLogin();
-                    FocusScope.of(context).requestFocus(FocusNode());
-                  }),
-            ),
-          ]),
+      body: SafeArea(
+        top: false,
+        bottom: false,
+        child: Form(
+          key: objeController.loginFormKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(UIHelper.space15),
+            child: Column(children: [
+              CustomTextField(
+                hintText: 'Name',
+                prefixIcon: const Icon(Icons.person),
+                controller: objeController.nameController,
+                keyboardType: TextInputType.text,
+                validator: objeController.validateName,
+              ),
+              UIHelper.verticalSpace,
+              CustomTextField(
+                hintText: 'Email',
+                prefixIcon: const Icon(Icons.email),
+                controller: objeController.emailController,
+                keyboardType: TextInputType.emailAddress,
+                validator: objeController.validateEmail,
+              ),
+              UIHelper.verticalSpace,
+              CustomTextField(
+                hintText: 'Password',
+                prefixIcon: const Icon(Icons.lock),
+                isTextObscured: true,
+                controller: objeController.passwordController,
+                keyboardType: TextInputType.visiblePassword,
+                validator: objeController.validatePassword,
+              ),
+              UIHelper.verticalSpace,
+              SizedBox(
+                height: UIHelper.dynamicHeight(UIHelper.space50),
+                width: double.infinity,
+                child: CustomElevatedButton(
+                    label: 'Submit',
+                    textStyle: context.textTheme.headline6,
+                    onPressed: () {
+                      objeController.checkLogin();
+                      FocusScope.of(context).requestFocus(FocusNode());
+                    }),
+              ),
+            ]),
+          ),
         ),
       ),
     );
