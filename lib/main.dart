@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'login_form/view/login_view.dart';
+import 'home/view/home_view.dart';
 
 void main() async {
   await GetStorage.init();
@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 690),
       builder: () => const GetMaterialApp(
         title: 'Get Form',
-        home: LoginView(),
+        debugShowCheckedModeBanner: false,
+        home: HomeView(),
       ),
     );
   }

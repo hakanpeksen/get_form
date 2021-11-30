@@ -23,3 +23,13 @@ class UIHelper {
 
   static Widget get horizontalSpace => SizedBox(width: dynamicWidth(space10));
 }
+
+/* class SpaceValue {
+  static const double normal = 40;
+  static const double veryLowHalf = 8;
+  static const double veryLow = 15;
+  static const double low = 20;
+  static const double medium = 30;
+  static const double high = 60;
+}
+ */
