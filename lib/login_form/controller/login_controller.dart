@@ -59,12 +59,11 @@ class LoginController extends GetxController {
     final isValid = loginFormKey.currentState!.validate();
     if (!isValid) return;
     loginFormKey.currentState!.save();
-
     saveModel(
       LoginModel(
           name: nameController.text,
           email: emailController.text,
-          password: int.parse(passwordController.text)),
+          password: int.tryParse(passwordController.text)),
     );
     Get.snackbar(
       'login',

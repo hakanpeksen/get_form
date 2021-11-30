@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../ui/shared/ui_helper.dart';
@@ -28,7 +29,7 @@ class LoginView extends StatelessWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(UIHelper.space15),
+              padding: EdgeInsets.all(15.h),
               child: Column(children: [
                 CustomTextField(
                   hintText: 'Name',
@@ -39,12 +40,11 @@ class LoginView extends StatelessWidget {
                 ),
                 UIHelper.verticalSpace,
                 CustomTextField(
-                  hintText: 'Email',
-                  prefixIcon: const Icon(Icons.email),
-                  controller: objeController.emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: objeController.validateEmail,
-                ),
+                    hintText: 'Email',
+                    prefixIcon: const Icon(Icons.email),
+                    controller: objeController.emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    validator: objeController.validateEmail),
                 UIHelper.verticalSpace,
                 CustomTextField(
                   hintText: 'Password',
@@ -56,7 +56,7 @@ class LoginView extends StatelessWidget {
                 ),
                 UIHelper.verticalSpace,
                 SizedBox(
-                  height: UIHelper.dynamicHeight(UIHelper.space40),
+                  height: 40.h,
                   width: double.infinity,
                   child: CustomElevatedButton(
                       label: 'Submit',
