@@ -18,6 +18,7 @@ class UIHelper {
   static const double space40 = 40;
   static const double space50 = 50;
 
+  static Widget get verticalSpace5 => SizedBox(height: dynamicHeight(space5));
   static Widget get verticalSpace => SizedBox(height: dynamicHeight(space10));
   static Widget get verticalSpaceLarge => SizedBox(height: dynamicHeight(space10 * 5));
 

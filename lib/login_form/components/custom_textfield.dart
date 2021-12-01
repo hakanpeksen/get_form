@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/shared/text_style.dart';
+import '../../theme/text_style.dart';
 import '../../ui/shared/ui_helper.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -34,7 +34,7 @@ class CustomTextField extends StatelessWidget {
           hintText: hintText,
           errorStyle: const TextStyle(fontSize: UIHelper.space14),
           prefixIcon: prefixIcon,
-          border: circleTextInputDecoration),
+          border: AppTextStyles.circleInputDecoration),
       validator: validator,
       controller: controller,
       keyboardType: keyboardType,

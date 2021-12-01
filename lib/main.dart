@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'home/view/home_view.dart';
+import 'home/view/card_view.dart';
+import 'theme/app_theme.dart';
 
 void main() async {
   await GetStorage.init();
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(360, 690),
-      builder: () => const GetMaterialApp(
+      builder: () => GetMaterialApp(
         title: 'Get Form',
+        theme: AppTheme.lightTheme,
         debugShowCheckedModeBanner: false,
-        home: HomeView(),
+        home: const CardView(),
       ),
     );
   }
