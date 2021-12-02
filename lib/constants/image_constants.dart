@@ -6,6 +6,7 @@ class ImageConstants {
 
   /// Png image
   String get matthew => toPng('matthew');
+  String get elliot => toPng('elliot-small');
 
   String toPng(String name) => 'assets/images/$name.png';
 

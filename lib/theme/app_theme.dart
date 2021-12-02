@@ -28,6 +28,7 @@ class AppTheme {
             subtitle1: AppTextStyles.subtitle1,
             subtitle2: AppTextStyles.subtitle2,
             headline6: AppTextStyles.h6,
+            button: AppTextStyles.button,
           )
           .apply(fontFamily: fontFamily),
     );

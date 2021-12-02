@@ -25,6 +25,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
   );
 
+  static final button = _textStyleLight.copyWith(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
+  );
+
   //static final cardSubtitle3 = subtitle2.copyWith(color: AppColors.black.withOpacity(0.8));
 
   static final circleInputDecoration =
