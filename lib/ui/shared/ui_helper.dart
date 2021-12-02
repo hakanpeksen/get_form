@@ -18,19 +18,19 @@ class UIHelper {
   static const double space40 = 40;
   static const double space50 = 50;
 
+// Height SizedBox
+  static Widget get heightSpace5 => SizedBox(height: 5.h);
+  static Widget get heightSpace10 => SizedBox(height: 10.h);
+  static Widget get heightSpace15 => SizedBox(height: 15.h);
+  static Widget get heightSpace18 => SizedBox(height: 18.h);
+  static Widget get heightSpace23 => SizedBox(height: 23.h);
+
+// Width SizedBox
+  static Widget get widthSpace13 => SizedBox(width: 13.w);
+
   static Widget get verticalSpace5 => SizedBox(height: dynamicHeight(space5));
   static Widget get verticalSpace => SizedBox(height: dynamicHeight(space10));
   static Widget get verticalSpaceLarge => SizedBox(height: dynamicHeight(space10 * 5));
 
   static Widget get horizontalSpace => SizedBox(width: dynamicWidth(space10));
 }
-
-/* class SpaceValue {
-  static const double normal = 40;
-  static const double veryLowHalf = 8;
-  static const double veryLow = 15;
-  static const double low = 20;
-  static const double medium = 30;
-  static const double high = 60;
-}
- */

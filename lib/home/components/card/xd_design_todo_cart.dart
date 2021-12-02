@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:get_form/ui/shared/ui_helper.dart';
 
 import '../../../constants/image_constants.dart';
 import '../../../theme/app_color.dart';
@@ -26,11 +27,11 @@ class XdDesignTodoCard extends StatelessWidget {
           children: [
             Expanded(child: Image.asset(ImageConstants.instance.matthew, fit: BoxFit.cover)),
             Padding(padding: EdgeInsets.fromLTRB(20.w, 8.h, 0, 5.h), child: cardBodyColumn),
-            SizedBox(height: 23.h),
+            UIHelper.heightSpace23,
             cardDivider,
-            SizedBox(height: 15.h),
+            UIHelper.heightSpace15,
             Padding(padding: EdgeInsets.symmetric(horizontal: 20.w), child: cardBodyRow),
-            SizedBox(height: 15.h),
+            UIHelper.heightSpace15,
           ],
         ),
       ),
@@ -41,9 +42,9 @@ class XdDesignTodoCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           buildText(subtitle1, Get.textTheme.subtitle1!),
-          SizedBox(height: 5.h),
+          UIHelper.heightSpace5,
           Opacity(opacity: 0.4, child: buildText(subtitle2, Get.textTheme.subtitle2!)),
-          SizedBox(height: 5.h),
+          UIHelper.heightSpace5,
           Opacity(opacity: 0.8, child: buildText(subtitle3, Get.textTheme.subtitle2!)),
         ],
       );
@@ -60,7 +61,7 @@ class XdDesignTodoCard extends StatelessWidget {
   Row get cardBodyRow => Row(
         children: [
           iconWidget,
-          SizedBox(width: 13.w),
+          UIHelper.widthSpace13,
           Opacity(opacity: 0.4, child: buildText(subtitle4, Get.textTheme.subtitle2!)),
           const Spacer(),
           Opacity(opacity: 0.4, child: buildText(subtitle5, Get.textTheme.subtitle2!)),

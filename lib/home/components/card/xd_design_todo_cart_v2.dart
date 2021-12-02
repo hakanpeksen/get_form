@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../constants/image_constants.dart';
 import '../../../theme/app_color.dart';
+import '../../../ui/shared/ui_helper.dart';
 
 class XdDesignTodoCardV2 extends StatelessWidget {
   const XdDesignTodoCardV2({Key? key}) : super(key: key);
@@ -28,11 +29,11 @@ class XdDesignTodoCardV2 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(padding: EdgeInsets.fromLTRB(11.w, 16.h, 0, 5.h), child: cardBodyColumn),
-                SizedBox(height: 18.h),
+                UIHelper.heightSpace18,
                 cardDivider,
-                SizedBox(height: 10.h),
+                UIHelper.heightSpace10,
                 cardBodyRow,
-                SizedBox(height: 10.h),
+                UIHelper.heightSpace10,
               ],
             ),
           ],
@@ -45,9 +46,9 @@ class XdDesignTodoCardV2 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           buildText(subtitle1, Get.textTheme.subtitle1!),
-          SizedBox(height: 5.h),
+          UIHelper.heightSpace5,
           Opacity(opacity: 0.4, child: buildText(subtitle2, Get.textTheme.subtitle2!)),
-          SizedBox(height: 5.h),
+          UIHelper.heightSpace5,
           Opacity(opacity: 0.8, child: buildText(subtitle3, Get.textTheme.subtitle2!)),
         ],
       );
