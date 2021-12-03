@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
 import 'home/view/card_view.dart';
 import 'theme/app_theme.dart';
 
@@ -29,4 +28,7 @@ class MyApp extends StatelessWidget {
 }
 
   /// import 'package:get_form/features/home_view.dart';
-        // home: const HomeView(),
+  // home: const HomeView(),
+
+  //  import 'features/grid_home_view.dart';
+  // home: const GridHomeView(),
