@@ -15,59 +15,67 @@ class LoginView extends StatelessWidget {
     final objeController = Get.put(LoginController());
 
     return Scaffold(
-      appBar: AppBar(
-        title: GetBuilder<LoginController>(
-            init: LoginController(),
-            builder: (_) => ((Text('Name: ${objeController.name.toString()}',
-                style: context.textTheme.headline5)))),
-      ),
+      appBar: buildAppBar(objeController, context),
       body: SafeArea(
         top: false,
         bottom: false,
-        child: Form(
-          key: objeController.loginFormKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          child: Center(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.all(15.h),
-              child: Column(children: [
-                CustomTextField(
-                  hintText: 'Name',
-                  prefixIcon: const Icon(Icons.person),
-                  controller: objeController.nameController,
-                  keyboardType: TextInputType.text,
-                  validator: objeController.validateName,
-                ),
-                UIHelper.verticalSpace,
-                CustomTextField(
-                    hintText: 'Email',
-                    prefixIcon: const Icon(Icons.email),
-                    controller: objeController.emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: objeController.validateEmail),
-                UIHelper.verticalSpace,
-                CustomTextField(
-                  hintText: 'Password',
-                  prefixIcon: const Icon(Icons.lock),
-                  isTextObscured: true,
-                  controller: objeController.passwordController,
-                  keyboardType: TextInputType.visiblePassword,
-                  validator: objeController.validatePassword,
-                ),
-                UIHelper.verticalSpace,
-                SizedBox(
-                  height: 40.h,
-                  width: double.infinity,
-                  child: CustomElevatedButton(
-                      label: 'Submit',
-                      onPressed: () {
-                        objeController.checkLogin();
-                        FocusScope.of(context).requestFocus(FocusNode());
-                      }),
-                ),
-              ]),
+        child: buildForm(objeController, context),
+      ),
+    );
+  }
+
+  AppBar buildAppBar(LoginController objeController, BuildContext context) {
+    return AppBar(
+      title: GetBuilder<LoginController>(
+          init: LoginController(),
+          builder: (_) => ((Text('Name: ${objeController.name.toString()}',
+              style: context.textTheme.headline5)))),
+    );
+  }
+
+  Form buildForm(LoginController objeController, BuildContext context) {
+    return Form(
+      key: objeController.loginFormKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Center(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(15.h),
+          child: Column(children: [
+            CustomTextField(
+              hintText: 'Name',
+              prefixIcon: const Icon(Icons.person),
+              controller: objeController.nameController,
+              keyboardType: TextInputType.text,
+              validator: objeController.validateName,
             ),
-          ),
+            UIHelper.verticalSpace,
+            CustomTextField(
+                hintText: 'Email',
+                prefixIcon: const Icon(Icons.email),
+                controller: objeController.emailController,
+                keyboardType: TextInputType.emailAddress,
+                validator: objeController.validateEmail),
+            UIHelper.verticalSpace,
+            CustomTextField(
+              hintText: 'Password',
+              prefixIcon: const Icon(Icons.lock),
+              isTextObscured: true,
+              controller: objeController.passwordController,
+              keyboardType: TextInputType.visiblePassword,
+              validator: objeController.validatePassword,
+            ),
+            UIHelper.verticalSpace,
+            SizedBox(
+              height: 40.h,
+              width: double.infinity,
+              child: CustomElevatedButton(
+                  label: 'Submit',
+                  onPressed: () {
+                    objeController.checkLogin();
+                    FocusScope.of(context).requestFocus(FocusNode());
+                  }),
+            ),
+          ]),
         ),
       ),
     );
