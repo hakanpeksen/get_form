@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../ui/shared/text_style.dart';
 import 'package:get/get.dart';
+import '../../../ui/shared/text_style.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String label;

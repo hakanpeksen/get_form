@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../ui/shared/text_style.dart';
-import '../../ui/shared/ui_helper.dart';
+import '../../../ui/shared/text_style.dart';
+import '../../../ui/shared/ui_helper.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'login_form/view/login_view.dart';
+import 'features/geolocator/view/geo_locator.dart';
 
 void main() async {
   await GetStorage.init();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       builder: () => const GetMaterialApp(
         title: 'Get Form',
         debugShowCheckedModeBanner: false,
-        home: LoginView(),
+        home: GeoLocator(),
       ),
     );
   }

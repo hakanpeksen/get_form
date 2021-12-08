@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../../ui/shared/ui_helper.dart';
+import '../../../ui/shared/ui_helper.dart';
 import '../components/custom_elevatedbutton.dart';
 import '../components/custom_textfield.dart';
 import '../controller/login_controller.dart';
