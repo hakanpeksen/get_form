@@ -12,30 +12,23 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final objeController = Get.put(LoginController());
+    // AppController da onInit de route lar silindiği için Get.put kullanıldı
+    // Get.find hata aldı
+    final applogin = Get.put(LoginController());
 
     return Scaffold(
-      appBar: buildAppBar(objeController, context),
+      appBar: AppBar(title: const Text('Login')),
       body: SafeArea(
         top: false,
         bottom: false,
-        child: buildForm(objeController, context),
+        child: buildForm(applogin, context),
       ),
     );
   }
 
-  AppBar buildAppBar(LoginController objeController, BuildContext context) {
-    return AppBar(
-      title: GetBuilder<LoginController>(
-          init: LoginController(),
-          builder: (_) => ((Text('Name: ${objeController.name.toString()}',
-              style: context.textTheme.headline5)))),
-    );
-  }
-
-  Form buildForm(LoginController objeController, BuildContext context) {
+  Form buildForm(LoginController applogin, BuildContext context) {
     return Form(
-      key: objeController.loginFormKey,
+      key: applogin.loginFormKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Center(
         child: SingleChildScrollView(
@@ -44,25 +37,25 @@ class LoginView extends StatelessWidget {
             CustomTextField(
               hintText: 'Name',
               prefixIcon: const Icon(Icons.person),
-              controller: objeController.nameController,
+              controller: applogin.nameController,
               keyboardType: TextInputType.text,
-              validator: objeController.validateName,
+              validator: applogin.validateName,
             ),
             UIHelper.verticalSpace,
             CustomTextField(
                 hintText: 'Email',
                 prefixIcon: const Icon(Icons.email),
-                controller: objeController.emailController,
+                controller: applogin.emailController,
                 keyboardType: TextInputType.emailAddress,
-                validator: objeController.validateEmail),
+                validator: applogin.validateEmail),
             UIHelper.verticalSpace,
             CustomTextField(
               hintText: 'Password',
               prefixIcon: const Icon(Icons.lock),
               isTextObscured: true,
-              controller: objeController.passwordController,
+              controller: applogin.passwordController,
               keyboardType: TextInputType.visiblePassword,
-              validator: objeController.validatePassword,
+              validator: applogin.validatePassword,
             ),
             UIHelper.verticalSpace,
             SizedBox(
@@ -71,7 +64,7 @@ class LoginView extends StatelessWidget {
               child: CustomElevatedButton(
                   label: 'Submit',
                   onPressed: () {
-                    objeController.checkLogin();
+                    applogin.checkLogin();
                     FocusScope.of(context).requestFocus(FocusNode());
                   }),
             ),

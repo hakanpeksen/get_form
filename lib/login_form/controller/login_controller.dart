@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 import '../model/login_model.dart';
+import '../service/app_service.dart';
+import 'app_controller.dart';
 
 class LoginController extends GetxController {
-  final box = GetStorage();
-  final _key = 'loginKey';
+  final appCtrl = Get.put(AppController());
   final loginFormKey = GlobalKey<FormState>();
   late TextEditingController nameController, emailController, passwordController;
+  final service = Get.put(AppService());
 
   @override
   void onInit() {
@@ -23,21 +24,6 @@ class LoginController extends GetxController {
     nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
-  }
-
-  String get name => getModel()?.name ?? '';
-
-  void saveModel(LoginModel model) {
-    box.write(_key, model.toMap());
-    update();
-  }
-
-  getModel() {
-    final map = box.read(_key);
-    if (map != null) {
-      return LoginModel.fromMap(map);
-    }
-    return map;
   }
 
   String? validateName(String? value) {
@@ -59,7 +45,9 @@ class LoginController extends GetxController {
     final isValid = loginFormKey.currentState!.validate();
     if (!isValid) return;
     loginFormKey.currentState!.save();
-    saveModel(
+    appCtrl.saveHasLoggedIn(true);
+    Get.offAllNamed(appCtrl.getInitialRoute());
+    service.saveLoginModel(
       LoginModel(
           name: nameController.text,
           email: emailController.text,
@@ -69,7 +57,7 @@ class LoginController extends GetxController {
       'login',
       'is successed',
       backgroundColor: Colors.green,
-      duration: 2.seconds,
+      duration: 1.seconds,
     );
     loginFormKey.currentState!.reset();
   }
