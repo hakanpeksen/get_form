@@ -8,6 +8,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final service = Get.find<AppService>();
-    return Scaffold(appBar: AppBar(title: Text('Welcome  ${service.name}')));
+    return Scaffold(appBar: AppBar(title: Text('Welcome  ${service.name.capitalize}')));
   }
 }

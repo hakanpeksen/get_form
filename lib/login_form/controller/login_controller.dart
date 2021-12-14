@@ -11,6 +11,8 @@ class LoginController extends GetxController {
   late TextEditingController nameController, emailController, passwordController;
   final service = Get.put(AppService());
 
+  var isSecureText = true.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -24,6 +26,11 @@ class LoginController extends GetxController {
     nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+  }
+
+  /// [password_form_field_component] change visibility
+  void changeSecure() {
+    isSecureText.toggle();
   }
 
   String? validateName(String? value) {

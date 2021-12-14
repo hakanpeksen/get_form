@@ -14,10 +14,12 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType,
     this.onTap,
     this.onSaved,
+    this.labelText,
   }) : super(key: key);
 
   final Function(String)? changedValue;
   final String? hintText;
+  final String? labelText;
   final Widget? prefixIcon;
   final bool? isTextObscured;
   final String? Function(String?)? validator;
@@ -30,10 +32,12 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+          labelText: labelText,
           hintText: hintText,
           errorStyle: const TextStyle(fontSize: UIHelper.space14),
           prefixIcon: prefixIcon,
           border: circleTextInputDecoration),
+
       validator: validator,
       controller: controller,
       keyboardType: keyboardType,

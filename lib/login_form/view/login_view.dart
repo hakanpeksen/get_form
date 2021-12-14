@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../ui/shared/ui_helper.dart';
 import '../components/custom_elevatedbutton.dart';
 import '../components/custom_textfield.dart';
+import '../components/password_form_field.dart';
 import '../controller/login_controller.dart';
 
 class LoginView extends StatelessWidget {
@@ -35,6 +35,7 @@ class LoginView extends StatelessWidget {
           padding: EdgeInsets.all(15.h),
           child: Column(children: [
             CustomTextField(
+              labelText: 'Name',
               hintText: 'Name',
               prefixIcon: const Icon(Icons.person),
               controller: applogin.nameController,
@@ -43,20 +44,18 @@ class LoginView extends StatelessWidget {
             ),
             UIHelper.verticalSpace,
             CustomTextField(
+                labelText: 'Email',
                 hintText: 'Email',
                 prefixIcon: const Icon(Icons.email),
                 controller: applogin.emailController,
                 keyboardType: TextInputType.emailAddress,
                 validator: applogin.validateEmail),
             UIHelper.verticalSpace,
-            CustomTextField(
-              hintText: 'Password',
-              prefixIcon: const Icon(Icons.lock),
-              isTextObscured: true,
-              controller: applogin.passwordController,
-              keyboardType: TextInputType.visiblePassword,
-              validator: applogin.validatePassword,
-            ),
+            Obx(() => PasswordFormField(
+                  label: 'Password',
+                  textEditingController: applogin.passwordController,
+                  validator: applogin.validatePassword,
+                )),
             UIHelper.verticalSpace,
             SizedBox(
               height: 40.h,
